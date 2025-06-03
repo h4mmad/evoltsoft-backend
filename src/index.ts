@@ -11,6 +11,7 @@ import authRouter from "./auth/auth";
 import { authenticate } from "./auth/auth-utils";
 import cors from "cors";
 
+const port = process.env.PORT || 3000;
 const app = express();
 
 app.use(cors());
@@ -140,6 +141,6 @@ app.delete("/api/charging-stations/:id", authenticate, async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+app.listen(port, () => {
+  console.log("Server running on port: ", port);
 });
